@@ -1,0 +1,10 @@
+.activity {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0ed;
+}
+.name {
+    font-weight: 600;
+}
+.message {
+    font-style: italic;
+}

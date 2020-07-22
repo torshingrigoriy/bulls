@@ -1,0 +1,15 @@
+.activities {
+    background: #fff;
+    border-radius: 10px;
+}
+.title {
+    background: #565656;
+    border-radius: 10px 10px 0 0;
+    padding: 5px 10px;
+}
+.title h2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 21px;
+    color: #fff;
+}

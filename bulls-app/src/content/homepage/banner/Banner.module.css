@@ -1,0 +1,6 @@
+.banner {
+    background: url(./images/court.jpg) top center /cover no-repeat;
+    height: 300px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}

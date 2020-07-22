@@ -1,0 +1,54 @@
+.header {
+  background: #565656;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 10px;
+}
+.logo {
+  width: 80px;
+}
+.logo img {
+  width: 100%;
+}
+.menu {
+  display: flex;
+  font-size: 24px;
+}
+
+.point {
+  margin: 0 20px;
+}
+.point a {
+  color: #fff;
+  text-decoration: none;
+}
+.point:hover a {
+  color: red;
+}
+.point .active {
+  color: red;
+}
+.login_sign {
+  display: flex;
+}
+.login_sign > div {
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+}
+.login {
+  background: yellowgreen;
+  margin-right: 10px;
+}
+.sign {
+  background: cornflowerblue;
+}
