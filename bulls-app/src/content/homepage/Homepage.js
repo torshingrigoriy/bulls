@@ -5,11 +5,12 @@ import style from './Homepage.module.css';
 import Banner from "./banner/Banner";
 import Activities from "./activities/Activities";
 
-function Homepage() {
+function Homepage(props) {
+
   return (
       <div className={style.homepage}>
           <Banner/>
-          <Activities/>
+          <Activities activities={props.homepageData.activities}/>
       </div>
   );
 }

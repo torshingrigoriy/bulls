@@ -1,3 +1,6 @@
+.wrap {
+  padding: 0 10px;
+}
 .title {
   background: #565656;
   border-radius: 10px 10px 0 0;
@@ -6,4 +9,39 @@
   font-weight: 600;
   font-size: 21px;
   color: #fff;
+}
+.input {
+  border: 0;
+  width: 100%;
+  display: block;
+  height: 40px;
+  padding: 0 5px;
+  color: #000;
+  border-radius: 5px;
+  background: #f0f0ed;
+  margin-bottom: 10px;
+}
+.button {
+  border: 0;
+  background: cornflowerblue;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.remember {
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.remember:hover {
+  text-decoration: underline;
 }
