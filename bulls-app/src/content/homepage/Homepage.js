@@ -4,13 +4,20 @@ import style from './Homepage.module.css';
 
 import Banner from "./banner/Banner";
 import Activities from "./activities/Activities";
+import StoreContext from '../../StoreContext';
 
 function Homepage(props) {
 
   return (
       <div className={style.homepage}>
           <Banner/>
-          <Activities activities={props.homepageData.activities}/>
+          <StoreContext.Consumer>
+              {
+                  (store)=>(
+                      <Activities activities={store.getState().homepage.activities}/>
+                  )
+              }
+          </StoreContext.Consumer>
       </div>
   );
 }

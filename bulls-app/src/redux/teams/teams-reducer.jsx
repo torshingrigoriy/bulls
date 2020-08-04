@@ -3,7 +3,17 @@ const WRITE_TEAMCOLOR = 'WRITE_TEAMCOLOR';
 const WRITE_TEAMCITY = 'WRITE_TEAMCITY';
 const ADD_TEAM = 'ADD_TEAM';
 
-const teamsReducer = (state, action) => {
+let initialState = {
+    teams: [
+        {id: 1, name: 'Lakers', color: '#f8f804', city: 'Los Angeles'},
+        {id: 2, name: 'Bulls', color: '#d70023', city: 'Chicago'},
+    ],
+    teamname_live: '',
+    teamcolor_live: '',
+    teamcity_live: ''
+}
+
+const teamsReducer = (state = initialState, action) => {
     switch(action.type) {
         case WRITE_TEAMNAME:
             state.teamname_live = action.teamname;
@@ -31,7 +41,6 @@ const teamsReducer = (state, action) => {
 }
 
 
-export const addTeamAC = () => ({type: ADD_TEAM});
 export const writeTeamnameAC = (teamname) => {
     return {type: WRITE_TEAMNAME, teamname: teamname}
 }
@@ -41,5 +50,6 @@ export const writeTeamcolorAC = (teamcolor) => {
 export const writeTeamcityAC = (teamcity) => {
     return {type: WRITE_TEAMCITY, teamcity: teamcity}
 }
+export const addTeamAC = () => ({type: ADD_TEAM});
 
 export default teamsReducer;

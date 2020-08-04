@@ -1,22 +1,16 @@
 import React from 'react';
 
 import style from './Logsign.module.css';
-import {addUserAC, changeLoginAC} from "../../redux/users/users-reducer";
 
 function Logsign(props) {
 
-    let newUserLogin = React.createRef();
-
-    let addUser = () => {
-        let login = newUserLogin.current.value;
-        let action = addUserAC();
-        props.dispatch(action);
+    let onAddUser = (e) => {
+        props.addUser();
     }
 
-    let changeLogin = () => {
-        let newLogin = newUserLogin.current.value;
-        let action = changeLoginAC(newLogin);
-        props.dispatch(action);
+    let onChangeLogin = (e) => {
+        let newLogin = e.target.value;
+        props.changeLogin(newLogin);
     }
 
   return (
@@ -24,12 +18,12 @@ function Logsign(props) {
           <div className={style.title}>Sign in</div>
           <div className={style.wrap}>
               <div className={style.login}>
-                  <input className={style.input} onChange={changeLogin} ref={newUserLogin} type="text" value={props.users.username_live} placeholder="Login or Email"/>
+                  <input className={style.input} onChange={onChangeLogin} type="text" value={props.users.username_live} placeholder="Login or Email"/>
               </div>
               <div className={style.password}><input className={style.input} type="text" placeholder="Password"/></div>
               <div className={style.submit}>
                   <label className={style.remember}><input type="checkbox"/>Remember me</label>
-                  <button className={style.button} onClick={addUser} >Sign in</button>
+                  <button className={style.button} onClick={onAddUser} >Sign in</button>
               </div>
           </div>
       </div>

@@ -1,7 +1,16 @@
 const ADD_USER = 'ADD-USER';
 const CHANGE_LOGIN = 'CHANGE-LOGIN';
 
-const usersReducer = (state, action) => {
+let initialState = {
+    existing_users: [
+        {id: 1, name: 'Adam', img: '', friendsCount: '10M'},
+        {id: 2, name: 'Gregory', img: '', friendsCount: '50'},
+        {id: 3, name: 'LeBron', img: '', friendsCount: '35M'},
+    ],
+    username_live: ''
+}
+
+const usersReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_USER:
             let newUser = {

@@ -2,12 +2,12 @@ import React from 'react';
 
 import style from './Rightcol.module.css';
 
-import Logsign from "./logsign/Logsign";
+import LogsignContainer from "./logsign/LogsignContainer";
 
 function Rightcol(props) {
   return (
       <div className={style.rightcol}>
-        <Logsign users={props.users} dispatch={props.dispatch}/>
+        <LogsignContainer/>
       </div>
   );
 }

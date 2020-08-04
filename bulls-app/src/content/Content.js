@@ -6,7 +6,7 @@ import Homepage from "./homepage/Homepage";
 import Blog from "./blog/Blog";
 import Courts from "./courts/Courts";
 import Players from "./players/Players";
-import Teams from "./teams/Teams";
+import TeamsContainer from "./teams/TeamsContainer";
 import Training from "./training/Training";
 import {Route} from "react-router-dom";
 
@@ -14,11 +14,11 @@ function Content(props) {
 
   return (
       <div className={style.content}>
-          <Route exact path='/' render={() => <Homepage homepageData={props.data.getState().homepage}/>} />
+          <Route exact path='/' render={() => <Homepage />} />
           <Route path='/blog' component={Blog} />
           <Route path='/courts' component={Courts} />
           <Route path='/players' render={() => <Players/>} />
-          <Route path='/teams' render={() => <Teams dispatch={props.dispatch} teamspage={props.data.getState().teamspage}/>} />
+          <Route path='/teams' render={() => <TeamsContainer />} />
           <Route path='/training' component={Training} />
       </div>
   );

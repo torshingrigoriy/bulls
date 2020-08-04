@@ -1,48 +1,48 @@
 import React from 'react';
 
 import style from './AddTeam.module.css';
-import {writeTeamnameAC, writeTeamcolorAC, writeTeamcityAC, addTeamAC} from "../../../redux/teams/teams-reducer";
-
 
 function AddTeam(props) {
 
-    let writeTeamname = (e) => {
+    let onChangeName = (e) => {
         let teamname = e.target.value;
-        let action = writeTeamnameAC(teamname);
-        props.dispatch(action);
+        props.addTeamActions.writeTeamname(teamname);
     }
-    let writeTeamcolor = (e) => {
+    let onChangeColor = (e) => {
         let teamcolor = e.target.value;
-        let action = writeTeamcolorAC(teamcolor);
-        props.dispatch(action);
+        props.addTeamActions.writeTeamcolor(teamcolor);
     }
-    let writeTeamcity = (e) => {
+    let onChangeCity = (e) => {
         let teamcity = e.target.value;
-        let action = writeTeamcityAC(teamcity);
-        props.dispatch(action);
+        props.addTeamActions.writeTeamcity(teamcity);
     }
-    let addTeam = () => {
-        let action = addTeamAC();
-        props.dispatch(action);
+    let onAddTeam = () => {
+        props.addTeamActions.addTeam();
     }
   return (
       <div className={style.addteam}>
           <div className={style.form}>
               <div className={style.teamname}>
-                  <input onChange={writeTeamname}
-                            value={props.addData.teamname_live}
+                  <input onChange={onChangeName}
+                            value={props.teamspage.teamname_live}
                             type="text"
                             placeholder='Enter team name'/>
               </div>
               <div className={style.teamcolor}>
-                  <input onChange={writeTeamcolor} value={props.addData.teamcolor_live} type="text" placeholder='Team color' />
+                  <input onChange={onChangeColor}
+                         value={props.teamspage.teamcolor_live}
+                         type="text"
+                         placeholder='Team color' />
               </div>
               <div className={style.teamcity}>
-                  <input onChange={writeTeamcity} value={props.addData.teamcity_live} type="text" placeholder='Team city'/>
+                  <input onChange={onChangeCity}
+                         value={props.teamspage.teamcity_live}
+                         type="text"
+                         placeholder='Team city'/>
               </div>
               
               <div className={style.buttonadd}>
-                  <button className={style.button} onClick={addTeam}>Add team</button>
+                  <button className={style.button} onClick={onAddTeam}>Add team</button>
               </div>
           </div>
       </div>

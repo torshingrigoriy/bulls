@@ -15,9 +15,9 @@ function App(props) {
           <div className={style.wrapper}>
               <Header/>
               <div className={style.content}>
-                  <Leftcol users={props.store.getState().users}  />
-                  <Content data={props.store} dispatch={props.dispatch}/>
-                  <Rightcol users={props.store.getState().users} dispatch={props.dispatch}/>
+                  <Leftcol/>
+                  <Content/>
+                  <Rightcol/>
               </div>
               <Footer/>
           </div>
