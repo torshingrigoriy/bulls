@@ -15,27 +15,39 @@ let initialState = {
 
 const teamsReducer = (state = initialState, action) => {
     switch(action.type) {
-        case WRITE_TEAMNAME:
-            state.teamname_live = action.teamname;
-            return state;
-        case WRITE_TEAMCOLOR:
-            state.teamcolor_live = action.teamcolor;
-            return state;
-        case WRITE_TEAMCITY:
-            state.teamcity_live = action.teamcity;
-            return state;
-        case ADD_TEAM:
+        case WRITE_TEAMNAME: {
+            return {
+                ...state,
+                teamname_live: action.teamname
+            }
+        }
+        case WRITE_TEAMCOLOR: {
+            return {
+                ...state,
+                teamcolor_live: action.teamcolor,
+            }
+        }
+        case WRITE_TEAMCITY: {
+            return {
+                ...state,
+                teamcity_live: action.teamcity
+            }
+        }
+        case ADD_TEAM: {
             let newTeam = {
                 id: 3,
                 name: state.teamname_live,
                 color: state.teamcolor_live,
                 city: state.teamcity_live,
             }
-            state.teams.push(newTeam);
-            state.teamname_live = '';
-            state.teamcolor_live = '';
-            state.teamcity_live = '';
-            return state;
+            return {
+                ...state,
+                teams: [...state.teams, newTeam ],
+                teamname_live: '',
+                teamcolor_live: '',
+                teamcity_live: '',
+            }
+        }
         default: return state;
     }
 }

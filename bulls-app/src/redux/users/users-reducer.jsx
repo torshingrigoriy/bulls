@@ -12,19 +12,25 @@ let initialState = {
 
 const usersReducer = (state = initialState, action) => {
     switch(action.type) {
-        case ADD_USER:
+        case ADD_USER: {
             let newUser = {
                 id: 4,
                 name: state.username_live,
                 img: '4',
                 friendsCount: '0',
             }
-            state.existing_users.push(newUser);
-            state.username_live = '';
-            return state;
-        case CHANGE_LOGIN:
-            state.username_live = action.username_live;
-            return state;
+            return {
+                ...state,
+                existing_users: [...state.existing_users, newUser],
+                username_live: ''
+            };
+        }
+        case CHANGE_LOGIN: {
+            return {
+                ...state,
+                username_live: action.username_live
+            }
+        }
         default: return state;
     }
 }

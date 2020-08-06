@@ -6,6 +6,12 @@ import Team from "./team/Team";
 import AddTeam from "./add-team/AddTeam";
 
 function Teams(props) {
+    let addTeamActions = {
+        writeTeamname: props.writeTeamname,
+        writeTeamcolor: props.writeTeamcolor,
+        writeTeamcity: props.writeTeamcity,
+        addTeam: props.addTeam
+    }
     let team = props.teamspage.teams
         .map(team => <Team name={team.name} color={team.color} city={team.city}/>)
   return (
@@ -16,7 +22,7 @@ function Teams(props) {
               {team}
           </div>
 
-          <AddTeam  teamspage={props.teamspage} addTeamActions={props.addTeamActions}/>
+          <AddTeam  teamspage={props.teamspage} addTeamActions={addTeamActions}/>
 
       </div>
   );

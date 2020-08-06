@@ -3,7 +3,6 @@ import React from 'react';
 import style from './AddTeam.module.css';
 
 function AddTeam(props) {
-
     let onChangeName = (e) => {
         let teamname = e.target.value;
         props.addTeamActions.writeTeamname(teamname);

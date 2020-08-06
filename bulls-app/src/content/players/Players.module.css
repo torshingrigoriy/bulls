@@ -1,0 +1,37 @@
+.head {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    padding: 5px 0;
+}
+.head > div {
+    text-align: center;
+    font-weight: 600;
+}
+.photo {
+    width: 100px;
+}
+.name {
+    width: 150px;
+}
+.position,
+.height,
+.weight,
+.number {
+    width: 50px;
+}
+.birthday {
+    width: 100px;
+}
+.team {
+    width: 150px;
+}
+.rating {
+    width: 78px;
+}

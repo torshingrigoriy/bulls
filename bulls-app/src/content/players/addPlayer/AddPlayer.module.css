@@ -1,0 +1,66 @@
+.player {
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: #fff;
+    border: 1px solid #000;
+    margin-bottom: 5px;
+}
+.part {
+    border-right: 1px solid #000;
+    font-size: 16px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.photo {
+    justify-content: center;
+}
+.photo span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #acacac;
+}
+.name {
+    font-size: 18px;
+    font-weight: 700;
+    width: 150px;
+    justify-content: flex-start;
+}
+.position,
+.height,
+.weight,
+.number {
+    font-weight: 700;
+    width: 50px;
+}
+.birthday {
+    width: 100px;
+}
+.team {
+    width: 200px;
+}
+.player .rating {
+    border-right: none;
+    margin-left: auto;
+}
+.player .awards {
+    width: 100%;
+    border-top: 1px solid #000;
+    border-right: none;
+    justify-content: flex-start;
+}
+.button {
+    background: cornflowerblue;
+    color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 10px;
+    margin-top: 5px;
+}

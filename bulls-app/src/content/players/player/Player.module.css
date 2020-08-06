@@ -1,0 +1,59 @@
+.player {
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: #fff;
+    border: 1px solid #000;
+    margin-bottom: 5px;
+}
+.part {
+    border-right: 1px solid #000;
+    font-size: 16px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.photo {
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background: #acacac;
+    padding: 0;
+    border-radius: 10px 0 0 0;
+}
+.photo img {
+    width: 100%;
+}
+.name {
+    font-size: 18px;
+    font-weight: 700;
+    width: 150px;
+    justify-content: flex-start;
+}
+.position,
+.height,
+.weight,
+.number {
+    font-weight: 700;
+    width: 50px;
+}
+.birthday {
+    width: 100px;
+}
+.team {
+    width: 150px;
+}
+.player .rating {
+    border-right: none;
+    width: 78px;
+    justify-content: center;
+}
+.player .awards {
+    width: 100%;
+    border-top: 1px solid #000;
+    border-right: none;
+    justify-content: flex-start;
+}
