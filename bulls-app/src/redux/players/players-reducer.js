@@ -2,6 +2,7 @@
 import player1 from '../../assets/images/player1.png';
 import player2 from '../../assets/images/player2.png';
 import player3 from '../../assets/images/player3.png';
+import player4 from '../../assets/images/player4.png';
 
 const LIKE = 'LIKE';
 const DISLIKE = 'DISLIKE';
@@ -24,17 +25,7 @@ const CHANGE_RATING = 'CHANGE_RATING';
 const SET_PLAYERS = 'SET_PLAYERS';
 
 let initialState = {
-    players: [
-        {id: 1, firstname: 'Gregory', lastname: 'Griffin', position: 'SF',
-            height: '178', weight: '80', number: '75', birthday: '30.09.1997',
-            team: 'Chicago Bulls', rating: '0', awards: ['MVP'], photo: player1  },
-        {id: 2, firstname: 'Vladimir', lastname: 'Kawhintila', position: 'PF',
-            height: '186', weight: '84', number: '8', birthday: '08.04.1997',
-            team: 'Los Angeles Clippers', rating: '0', awards: ['Best defensive player'], photo: player2 },
-        {id: 3, firstname: 'Denny', lastname: 'Westbrook', position: 'SG',
-            height: '172', weight: '63', number: '0', birthday: '16.05.2003',
-            team: 'Houston Rockets', rating: '0', awards: ['Best player 56 school;  ', '  3pt contest champion'], photo: player3 },
-    ],
+    players: [],
     livedata: {
         firstname_live: '',
         lastname_live: '',
@@ -181,7 +172,7 @@ const playersReducer = (state = initialState, action) => {
         case SET_PLAYERS: {
             return {
                 ...state,
-                players: [...state.players, ...action.players]
+                players: [...action.players]
             }
         }
         default:
