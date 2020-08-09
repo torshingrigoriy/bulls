@@ -23,6 +23,7 @@ const ADD_AWARDS = 'ADD_AWARDS';
 
 const CHANGE_RATING = 'CHANGE_RATING';
 const SET_PLAYERS = 'SET_PLAYERS';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
     players: [],
@@ -36,7 +37,8 @@ let initialState = {
         birthday_live: '',
         team_live: '',
         awards_live: '',
-    }
+    },
+    isFetching: false
 }
 const playersReducer = (state = initialState, action) => {
 
@@ -175,27 +177,31 @@ const playersReducer = (state = initialState, action) => {
                 players: [...action.players]
             }
         }
+        case TOGGLE_IS_FETCHING: {
+            return {...state, isFetching: action.isFetching}
+        }
         default:
             return state;
     }
 
 }
 
-export const likeAC = (id) => ({type: LIKE, id: id});
-export const dislikeAC = (id) => ({type: DISLIKE, id: id});
-export const writeFirstnameAC = (firstname_live) => ({type: WRITE_FIRSTNAME, firstname_live: firstname_live});
-export const writeLastnameAC = (lastname_live) => ({type: WRITE_LASTNAME, lastname_live: lastname_live});
-export const writePositionAC = (position_live) => ({type: WRITE_POSITION, position_live: position_live});
-export const writeHeightAC = (height_live) => ({type: WRITE_HEIGHT, height_live: height_live});
-export const writeWeightAC = (weight_live) => ({type: WRITE_WEIGHT, weight_live: weight_live});
-export const writeNumberAC = (number_live) => ({type: WRITE_NUMBER, number_live: number_live});
-export const writeBirthdayAC = (birthday_live) => ({type: WRITE_BIRTHDAY, birthday_live: birthday_live});
-export const writeTeamAC = (team_live) => ({type: WRITE_TEAM, team_live: team_live});
-export const writeAwardsAC = (awards_live) => ({type: WRITE_AWARDS, awards_live: awards_live});
-export const addPhotoAC = () => ({type: ADD_PHOTO});
-export const addPlayerAC = () => ({type: ADD_PLAYER});
-export const addAwardsAC = () => ({type: ADD_AWARDS});
-export const changeRatingAC = (id) => ({type: CHANGE_RATING, id: id});
-export const setPlayersAC = (players) => ({type: SET_PLAYERS, players: players});
+export const like = (id) => ({type: LIKE, id: id});
+export const dislike = (id) => ({type: DISLIKE, id: id});
+export const writeFirstname = (firstname_live) => ({type: WRITE_FIRSTNAME, firstname_live});
+export const writeLastname = (lastname_live) => ({type: WRITE_LASTNAME, lastname_live});
+export const writePosition = (position_live) => ({type: WRITE_POSITION, position_live});
+export const writeHeight = (height_live) => ({type: WRITE_HEIGHT, height_live});
+export const writeWeight = (weight_live) => ({type: WRITE_WEIGHT, weight_live});
+export const writeNumber = (number_live) => ({type: WRITE_NUMBER, number_live});
+export const writeBirthday = (birthday_live) => ({type: WRITE_BIRTHDAY, birthday_live});
+export const writeTeam = (team_live) => ({type: WRITE_TEAM, team_live});
+export const writeAwards = (awards_live) => ({type: WRITE_AWARDS, awards_live});
+export const addPhoto = () => ({type: ADD_PHOTO});
+export const addPlayer = () => ({type: ADD_PLAYER});
+export const addAwards = () => ({type: ADD_AWARDS});
+export const changeRating = (id) => ({type: CHANGE_RATING, id});
+export const setPlayers = (players) => ({type: SET_PLAYERS, players});
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 
 export default playersReducer;

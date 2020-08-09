@@ -10,7 +10,7 @@ function AddPlayer(props) {
   }
   let changeFirstname = (e) => {
     let newFirstname = e.target.value;
-    props.actions.writeFirtsname(newFirstname);
+    props.actions.writeFirstname(newFirstname);
   }
   let changeLastname = (e) => {
     let newLastname = e.target.value;

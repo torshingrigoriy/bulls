@@ -1,0 +1,13 @@
+.pagebar {
+    display: flex;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.pagebar > div {
+    padding: 2px 5px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.pagebar > div.active {
+    text-decoration: underline;
+}

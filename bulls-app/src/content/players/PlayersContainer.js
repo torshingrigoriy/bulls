@@ -2,81 +2,105 @@ import React from "react";
 import {connect} from "react-redux";
 import Players from "./Players";
 import {
-    likeAC,
-    dislikeAC,
-    writeFirstnameAC,
-    writeLastnameAC,
-    writePositionAC,
-    writeHeightAC,
-    writeWeightAC,
-    writeNumberAC,
-    writeBirthdayAC,
-    writeTeamAC,
-    writeAwardsAC,
-    addPhotoAC, addPlayerAC, addAwardsAC, changeRatingAC, setPlayersAC
+    like, dislike,
+    writeFirstname, writeLastname,
+    writePosition, writeHeight,
+    writeWeight, writeNumber,
+    writeBirthday, writeTeam,
+    writeAwards, addPhoto,
+    addPlayer, addAwards,
+    changeRating, setPlayers,
+    toggleIsFetching
 } from "../../redux/players/players-reducer";
+
+import {setCurrentPage, getTotalItemCount} from "../../redux/common/pagebar/pagebar-reducer";
+import * as axios from "axios";
+
+class PlayersC extends React.Component {
+    componentDidMount() {
+        this.props.toggleIsFetching(true);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.pagebar.currentPage}&count=${this.props.pagebar.pageSize}`).then(response => {
+            this.props.setPlayers(response.data.items);
+            this.props.getTotalItemCount(response.data.totalCount);
+            this.props.toggleIsFetching(false);
+        });
+    }
+    onPageChanged = (pageNumber) => {
+        this.props.toggleIsFetching(true);
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pagebar.pageSize}`).then(response => {
+            this.props.setPlayers(response.data.items);
+            this.props.toggleIsFetching(false);
+        });
+    }
+    render() {
+        let actions = {
+            like : this.props.like,
+            dislike : this.props.dislike,
+            writeFirstname : this.props.writeFirstname,
+            writeLastname : this.props.writeLastname,
+            writePosition : this.props.writePosition,
+            writeHeight : this.props.writeHeight,
+            writeWeight : this.props.writeWeight,
+            writeNumber : this.props.writeNumber,
+            writeBirthday : this.props.writeBirthday,
+            writeTeam : this.props.writeTeam,
+            writeAwards : this.props.writeAwards,
+            addPhoto : this.props.addPhoto,
+            addPlayer : this.props.addPlayer,
+            addAwards : this.props.addAwards,
+            changeRating : this.props.changeRating,
+            setPlayers : this.props.setPlayers,
+            getTotalItemCount : this.props.getTotalItemCount,
+            setCurrentPage : this.props.setCurrentPage,
+            onPageChanged: this.onPageChanged,
+        }
+        return (
+            <>
+                <Players livedata={this.props.livedata}
+                         pagebar={this.props.pagebar}
+                         players={this.props.players}
+                         isFetching={this.props.isFetching}
+                         actions={actions}
+                />
+
+            </>
+        )
+
+    }
+}
 
 let propsToState = (state) => {
     return {
         players: state.playerspage.players,
         livedata: state.playerspage.livedata,
-    }
-}
-let dispatchToState = (dispatch) => {
-    return {
-        actions: {
-            like: (id) => {
-                dispatch(likeAC(id));
-            },
-            dislike: (id) => {
-                dispatch(dislikeAC(id));
-            },
-            writeFirtsname: (firstname_live) => {
-                dispatch(writeFirstnameAC(firstname_live));
-            },
-            writeLastname: (lastname_live) => {
-                dispatch(writeLastnameAC(lastname_live));
-            },
-            writePosition: (position_live) => {
-                dispatch(writePositionAC(position_live));
-            },
-            writeHeight: (height_live) => {
-                dispatch(writeHeightAC(height_live));
-            },
-            writeWeight: (weight_live) => {
-                dispatch(writeWeightAC(weight_live));
-            },
-            writeNumber: (number_live) => {
-                dispatch(writeNumberAC(number_live));
-            },
-            writeBirthday: (birthday_live) => {
-                dispatch(writeBirthdayAC(birthday_live));
-            },
-            writeTeam: (team_live) => {
-                dispatch(writeTeamAC(team_live));
-            },
-            writeAwards: (awards_live) => {
-                dispatch(writeAwardsAC(awards_live));
-            },
-            addPhoto: () => {
-                dispatch(addPhotoAC());
-            },
-            addPlayer: () => {
-                dispatch(addPlayerAC());
-            },
-            addAwards: () => {
-                dispatch(addAwardsAC());
-            },
-            changeRating: (id) => {
-                dispatch(changeRatingAC(id));
-            },
-            setPlayers: (players) => {
-                dispatch(setPlayersAC(players));
-            },
-        }
+        pagebar: state.pagebar,
+        isFetching: state.playerspage.isFetching,
     }
 }
 
-const PlayersContainer = connect(propsToState, dispatchToState)(Players);
+let actionsToState = {
+    like,
+    dislike,
+    writeFirstname,
+    writeLastname,
+    writePosition,
+    writeHeight,
+    writeWeight,
+    writeNumber,
+    writeBirthday,
+    writeTeam,
+    writeAwards,
+    addPhoto,
+    addPlayer,
+    addAwards,
+    changeRating,
+    setPlayers,
+    getTotalItemCount,
+    setCurrentPage,
+    toggleIsFetching,
+}
+
+const PlayersContainer = connect(propsToState, actionsToState)(PlayersC);
 
 export default PlayersContainer;
